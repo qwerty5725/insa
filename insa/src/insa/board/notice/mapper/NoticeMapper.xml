@@ -2,20 +2,23 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.yo.feedback.mapper.FeedbackMapper">
+<mapper namespace="insa.board.notice.mapper.NoticeMapper">
+
+<!-- <select id="list" resultType="NoticeDto"> -->
+<!--  select * from notice -->
+<!-- </select> -->
 
 
+<!-- 	<select id="list" parameterType="int" resultType="insa.board.notice.dto.NoticeDto"> -->
 
-	<select id="list" parameterType="int" resultType="insa.board.notice.dto.NoticeDto">
-
-		<![CDATA[
-		select rn, no, userid, title, content, rating, regdate, guideid
-		from
-		(select /*+INDEX_DESC(tbl_feedback pk_feedback) */
-		rownum rn, no, userid, title, content, rating, regdate, guideid 
-		from tbl_feedback where no > 0 order by no desc)
-		where rn<=(#{page}*5) and rn > ((#{page}-1)*5)
-		]]>
+<!-- 		<![CDATA[ -->
+<!-- 		select rn, no, userid, title, content, rating, regdate, guideid -->
+<!-- 		from -->
+<!-- 		(select /*+INDEX_DESC(tbl_feedback pk_feedback) */ -->
+<!-- 		rownum rn, no, userid, title, content, rating, regdate, guideid  -->
+<!-- 		from tbl_feedback where no > 0 order by no desc) -->
+<!-- 		where rn<=(#{page}*5) and rn > ((#{page}-1)*5) -->
+<!-- 		]]> -->
 	    
-	</select> 
+<!-- 	</select>  -->
 	</mapper>

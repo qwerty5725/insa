@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
- 메인페이지
+<script type="text/javascript">
+location.href="<%=request.getContextPath() %>/index.insa";
+</script>
 </body>
 </html>

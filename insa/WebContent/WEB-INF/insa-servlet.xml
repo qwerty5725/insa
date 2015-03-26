@@ -24,6 +24,7 @@
 	<!--  controller와 model -->
 	<context:component-scan base-package="insa.board.**.controller"/>
 	<context:component-scan base-package="insa.board.**.model"/>
+	<context:component-scan base-package="insa.board.**.service"/>
 	
 	<!--    	file -->
    	<bean id="multipartResolver"
