@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx/spring-tx-2.5.xsd       
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	
+	<!-- BasicDataSource 
+		commons-dbcp-1.4.jar,commons-pool-1.5.6.jar필요
+		4개의 속성들을 setter메소드를 통해 setting 
+	 -->
+	<!-- 데이터베이스정보 -->		
+	<bean id="dataSource"	
+		class="org.apache.commons.dbcp.BasicDataSource"
+		p:driverClassName="oracle.jdbc.driver.OracleDriver"
+		p:url="jdbc:oracle:thin:@192.168.0.88:1521:orcl"
+		p:username="sosesc" 
+		p:password="smart" 
+		p:maxActive="2"		
+		p:maxIdle="1"
+		p:defaultAutoCommit="true"
+	/>
+	<!-- max_Active동시 사용 가능한 connection 수로 0 일 경우 무제한이며, default 는 8 -->
+	
+	<!-- MyBATIS 객체 --> <!-- DB정보와 쿼리문 모두를 포함한다. -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="/WEB-INF/spring/mybatis/sqlMapConfig.xml"/>
+	</bean>	
+	
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	<constructor-arg ref="sqlSessionFactory"/>
+	</bean>
+		
+		
+    <!-- TILES 설정 -->
+   <bean id="tilesconfigurer" 
+        class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles.xml</value>
+            </list>
+        </property>
+    </bean> 
+    
+    <!-- JSP 페이지리딩 객체 -->
+    <!-- UrlBasedViewResolver =jsp를 view로 사용할때 쓴다 -->
+    <bean id="viewResolver" 					
+        class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass">
+            <value>org.springframework.web.servlet.view.tiles2.TilesView</value>
+        </property>
+    </bean>
+    
+</beans>

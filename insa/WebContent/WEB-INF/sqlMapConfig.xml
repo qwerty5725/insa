@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration PUBLIC 
+"-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+<configuration>
+	<settings>
+		<!-- 설정에서 각 mapper 에 설정된 캐시를 전역적으로 사용할지 말지에 대한 여부 -->
+		<setting name="cacheEnabled" value="false" />
+		<!-- 생성키에 대한 JDBC 지원을 허용. 지원하는 드라이버가 필요하다. true 로 설정하면 생성키를 강제로 생성한다. 일부 드라이버(예를들면, Derby)에서는 이 설정을 무시한다. -->
+		<setting name="useGeneratedKeys" value="true" />
+		<!-- 디폴트 실행자(executor) 설정. SIMPLE 실행자는 특별히 하는 것이 없다. REUSE 실행자는 PreparedStatement 를 재사용한다. BATCH 실행자는 구문을 재사용하고 수정을 배치처리한다. -->
+		<setting name="defaultExecutorType" value="REUSE" />
+	</settings>
+	
+<!-- 	<settings>
+  <setting name="cacheEnabled" value="true"/>
+  <setting name="lazyLoadingEnabled" value="true"/>
+  <setting name="multipleResultSetsEnabled" value="true"/>
+  <setting name="useColumnLabel" value="true"/>
+  <setting name="useGeneratedKeys" value="false"/>
+  <setting name="autoMappingBehavior" value="PARTIAL"/>
+  <setting name="defaultExecutorType" value="SIMPLE"/>
+  <setting name="defaultStatementTimeout" value="25"/>
+  <setting name="safeRowBoundsEnabled" value="false"/>
+  <setting name="mapUnderscoreToCamelCase" value="false"/>
+  <setting name="localCacheScope" value="SESSION"/>
+  <setting name="jdbcTypeForNull" value="OTHER"/>
+  <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+</settings> -->
+	
+	
+	<!-- 별칭 -->
+	<!-- mappinh annotation -->
+	
+	<typeAliases>
+		<typeAlias type="kr.co.nethru.vo.UserVo" alias="UserVo"/>
+	</typeAliases>
+	
+	
+	<!-- sql xml 연결 -->
+	<mappers>
+		<mapper resource="ino/insa/youngwoo/gesipanQuery/WooGesipan.xml" />
+	</mappers>
+</configuration>
+ 	
+

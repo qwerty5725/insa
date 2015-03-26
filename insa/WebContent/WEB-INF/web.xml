@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns="http://java.sun.com/xml/ns/javaee" 
+		xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>board</display-name>
+  
+  <filter>
+    <filter-name>encodingFilter</filter-name> 
+        <filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>EUC-KR</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- applicationContext.xml을 찾음 -->
+  <listener>
+    <listener-class>
+			org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <servlet>
+    <servlet-name>insa</servlet-name>
+    <servlet-class>
+			org.springframework.web.servlet.DispatcherServlet <!-- mvc의 조합형태라고 보면됨 -->
+		</servlet-class>
+    <load-on-startup>1</load-on-startup>
+    <!-- load-on-startup숫자가 0보다 크면 서버가 스타트할떄 서블릿을 초기화한다 -->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insa</servlet-name>
+    <url-pattern>*.insa</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+ <welcome-file-list> 
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+   <!-- 오류검색 -->
+<!--   <context-param>
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>/WEB-INF/classes/log4j.properies</param-value>
+ </context-param>   -->
+ 
+<!-- 
+계층별로 나눈 xml 설정파일이 있다고 가정할 때,
+web.xml에서 모두 load되도록 등록할 때 사용.
+서블릿이전에 서블릿 초기화하는 용도록 쓰이며, 
+contextConfigLocation라는 파라미터를 쓰면, 
+Context Loader가 load할 수 있는 설정파일을 여거개 쓸 수 있다.
+
+web.xml에 저 문장이 빠지게 되면 default로,
+/WEB-INF/applicationContext.xml (spring 설정파일)
+을 쓰게 된다.
+
+[web.xml]
+<context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+           /WEB-INF/mars-ibatis.xml 
+           /WEB-INF/mars-service.xml 
+      </param-value>
+</context-param>
+
+<listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+
+ -->
+</web-app>
