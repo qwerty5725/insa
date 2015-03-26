@@ -5,6 +5,7 @@
     xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
     xsi:schemaLocation="http://www.springframework.org/schema/beans   
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
        http://www.springframework.org/schema/aop
@@ -12,7 +13,9 @@
        http://www.springframework.org/schema/tx 
        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd       
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+       http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 	
 	<!-- BasicDataSource 
 		commons-dbcp-1.4.jar,commons-pool-1.5.6.jar필요
@@ -34,12 +37,16 @@
 	<!-- MyBATIS 객체 --> <!-- DB정보와 쿼리문 모두를 포함한다. -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="/WEB-INF/spring/mybatis/sqlMapConfig.xml"/>
+<!-- 		<property name="configLocation" value="/WEB-INF/spring/mybatis/sqlMapConfig.xml"/> -->
 	</bean>	
 	
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-	<constructor-arg ref="sqlSessionFactory"/>
-	</bean>
+<!-- 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate"> -->
+<!-- 	<constructor-arg ref="sqlSessionFactory"/> -->
+<!-- 	</bean> -->
+		
+<!-- 		mybatis:scan을 사용하여 mapper인터페이스와 매핑 (SqlSessionTemplate 를 명시하지않아도 된다.) -->
+		<mybatis:scan base-package="insa.board.**.mapper"/>
+		
 		
 		
     <!-- TILES 설정 -->
