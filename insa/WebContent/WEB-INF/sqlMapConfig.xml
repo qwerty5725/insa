@@ -40,7 +40,7 @@
 	
 	<!-- sql xml 연결 -->
 	<mappers>
-		<mapper resource="ino/insa/youngwoo/gesipanQuery/WooGesipan.xml" />
+		<mapper resource="insa/board/notice/mapper/NoticeMapper.xml" />
 	</mappers>
 </configuration>
  	
