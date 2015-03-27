@@ -11,34 +11,39 @@ public class ImgBoardServiceImpl implements ImgBoardService {
     
     @Inject
     ImgBoardDao dao;
+    
+    @Inject
+    ImgBoardDTO dto;
+    
 	
 	@Override
 	public void create(ImgBoardDTO dto) {
-       		
+       	dao.create(dto);	
+       	
 	}
 
 	@Override
 	public List<ImgBoardDTO> list() {
-		// TODO Auto-generated method stub
-		return null;
+		List<ImgBoardDTO> list = dao.list();
+		return list;
 	}
 
 	@Override
 	public void update(ImgBoardDTO dto) {
-		// TODO Auto-generated method stub
-		
+        dao.update(dto);		
 	}
 
 	@Override
 	public void delete(int num) {
-		// TODO Auto-generated method stub
+		dao.delete(num);
 		
 	}
 
 	@Override
 	public ImgBoardDTO view(int num) {
-		// TODO Auto-generated method stub
-		return null;
+		ImgBoardDTO board = new ImgBoardDTO();
+		board = dao.view(num);
+		return board;
 	}
   
 }
