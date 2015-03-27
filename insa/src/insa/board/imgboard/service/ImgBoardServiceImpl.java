@@ -1,7 +1,7 @@
 package insa.board.imgboard.service;
 
+import insa.board.imgboard.dao.ImgBoardDao;
 import insa.board.imgboard.dto.ImgBoardDTO;
-import insa.board.imgboard.mapper.ImgboardMapper;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ import javax.inject.Inject;
 public class ImgBoardServiceImpl implements ImgBoardService {
     
     @Inject
-    ImgboardMapper mapper;
+    ImgBoardDao dao;
 	
 	@Override
 	public void create(ImgBoardDTO dto) {
-       mapper.create(dto);		
+       		
 	}
 
 	@Override
