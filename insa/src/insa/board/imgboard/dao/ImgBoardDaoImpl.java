@@ -27,20 +27,20 @@ public class ImgBoardDaoImpl implements ImgBoardDao {
 
 	@Override
 	public void update(ImgBoardDTO dto) {
-		
-		
+		mapper.update(dto);
 	}
 
 	@Override
 	public void delete(int num) {
-		// TODO Auto-generated method stub
+		mapper.delete(num);
 		
 	}
 
 	@Override
 	public ImgBoardDTO view(int num) {
-		// TODO Auto-generated method stub
-		return null;
+		ImgBoardDTO board = new ImgBoardDTO();
+		board = mapper.view(num);
+		return board;
 	}
 
 
