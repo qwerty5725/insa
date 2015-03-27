@@ -1,4 +1,4 @@
-package insa.board.deptgesi.gesipanDTO;
+package insa.board.deptgesi.dto;
 
 import java.util.Date;
 
