@@ -55,8 +55,11 @@ public class ImgBoardControllerImpl implements ImgBoardController {
 
 	@Override
 	public ModelAndView view(HttpServletRequest request, ImgBoardDTO dto) {
-		// TODO Auto-generated method stub
-		return null;
+        int num = Integer.parseInt(request.getParameter("num"));
+        dto = service.view(num);
+        ModelAndView model = new ModelAndView();
+        
+        return null;
 	}
 
 	
