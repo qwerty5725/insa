@@ -1,26 +1,33 @@
 package insa.board.imgboard.dao;
 
+import insa.board.imgboard.dto.ImgBoardDTO;
+import insa.board.imgboard.mapper.ImgboardMapper;
+
 import java.util.List;
 
-import insa.board.imgboard.dto.ImgBoardDTO;
+import javax.inject.Inject;
 
 public class ImgBoardDaoImpl implements ImgBoardDao {
-
+ @Inject
+ ImgboardMapper mapper;
+ 
+ 
 	@Override
 	public void create(ImgBoardDTO dto) {
-		// TODO Auto-generated method stub
+	mapper.create(dto);
 		
 	}
 
 	@Override
 	public List<ImgBoardDTO> list() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<ImgBoardDTO>list = mapper.list();
+		return list;
 	}
 
 	@Override
 	public void update(ImgBoardDTO dto) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

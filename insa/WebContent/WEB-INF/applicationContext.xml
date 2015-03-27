@@ -49,7 +49,7 @@
 		
 <!-- 		mybatis:scan을 사용하여 mapper인터페이스와 매핑 (SqlSessionTemplate 를 명시하지않아도 된다.) -->
 
-		<mybatis:scan base-package="insa.board.notice.mapper"/>
+		<mybatis:scan base-package="insa.board.**.mapper"/>
 		
 		
 		
