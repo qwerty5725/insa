@@ -16,7 +16,7 @@ public class Gesipan_Controller {
 	 @Inject
 	    DeptService service;
 	
-		@RequestMapping(value="/index.insa", method = RequestMethod.GET)
+		@RequestMapping(value="/index.dept", method = RequestMethod.GET)
 		public ModelAndView goIndex(){
 			ModelAndView model = new ModelAndView();
 			String sys  = service.sysdate();
