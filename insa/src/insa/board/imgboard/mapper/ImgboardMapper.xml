@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="insa.board.notice.mapper.ImgboardMapper">
+<select id="list" resultType="ImgBoardDTO"></select>
+<insert id="create" parameterType="ImgBoardDTO">
+ insert into imgboard (num,title,content,filename,regdate,empid) 
+ values(#{num},#{title},#{content},#{filename},sysdate,#{empid})
+</insert>
+<update id="update" parameterType="ImgBoardDTO"></update>
+<delete id="delete" parameterType="int"></delete>
+<select id="view" parameterType="int"></select>
+
+</mapper>

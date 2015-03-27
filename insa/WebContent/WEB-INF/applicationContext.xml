@@ -28,7 +28,7 @@
 	<bean id="dataSource"	
 		class="org.apache.commons.dbcp.BasicDataSource"
 		p:driverClassName="oracle.jdbc.driver.OracleDriver"
-		p:url="jdbc:oracle:thin:@192.168.0.88:1521:orcl"
+		p:url="jdbc:oracle:thin:@127.0.0.1:1521:orcl"
 		p:username="sosesc" 
 		p:password="smart" 
 		p:maxActive="2"		

@@ -10,5 +10,6 @@ public interface NoticeMapper {
 	@Select(" select sysdate from dual")
 	public String getTime();
 
+	 
 	
 }
